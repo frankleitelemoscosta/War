@@ -14,4 +14,6 @@ tendo conquista o mundo.
 ### A PRIMEIRA DECISÃO
 
 A primeira decisão feita foi a de começar um diagrama para que pudessemos ter 
-noção de quais rumos tomar com o projeto.
+noção de quais rumos tomar com o projeto, sua primeira versão segue na imagem:
+
+![first Photograph of diagram](https://user-images.githubusercontent.com/107070061/210263547-2d9d2f4b-599f-457b-9182-0393cd8d7084.png)
