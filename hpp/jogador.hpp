@@ -13,6 +13,7 @@ class Jogador
 {
 private:
 
+    vector<Jogador> lista_jogadores;
     string nome, objetivo;
     vector<string> cartas;
     unsigned int tropas;
@@ -22,6 +23,9 @@ private:
 public:
     Jogador(string nome, string objetivo, unsigned int tropas, vector<string> cartas);
     Jogador();
+
+    void setJogadores(vector<Jogador> jogadores);
+    vector<Jogador> getJogadores();
 
     void setNome(string nome);
     string getNome();
@@ -38,6 +42,8 @@ public:
     void setPaises(vector<Paises> paises);
     vector<Paises> getPaises();
 
+    void Imprimir_participantes();
+
     void aloc_tropas();
     void atacar();
     void realoc_tropas();
@@ -46,3 +52,5 @@ public:
     //fim dos métodos
 };
 #endif
+
+//fim do código

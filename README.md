@@ -31,5 +31,5 @@ metragem a seguir:
 https://user-images.githubusercontent.com/107070061/210267714-778d2dca-5d47-4bd3-b034-086b748ce584.mp4
 
 Como é possível ver é mostrado que foi obtido sucesso na compilação, o mesmo
-não apresentou nenhum warning, erro de sintaxe ou falha de segmentação, alcan-
-çando o que era esperado com relação as alterações realizadas no código fonte.
+não apresentou nenhum warning, erro de sintaxe ou falha de segmentação, alcançando 
+o que era esperado com relação as alterações realizadas no código fonte.
