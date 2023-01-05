@@ -2,11 +2,20 @@
     #include <iostream>
     #include <string>
     #include <vector>
+    #include <random>
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/paises.hpp"
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/jogador.hpp"
 //fim das bibliotecas
 
 using namespace std;
+
+int numero_aleatorio(int a, int b)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(a, b);
+    return dis(gen);
+}
 
 int main()
 {
@@ -17,6 +26,12 @@ int main()
         vector<Jogador> jogadores;
         Jogador J;
         string nome_jogador;
+        string vet[40] = {"Brasil","Australia","Peru","Argentina","Venezuela","Alaska","North Africa","South Africa","Congo","India","China","Japao","Afeganistao","California","Nova york","Mexico","Makenzie","Groelandia","Espanha","Moscou","Vancouver","Ottawa","Bolivia","Chile"};
+        int  numero_de_paises_de_um_player = 0;
+        int escolha;
+        vector<Paises> nome_pais ;
+        Paises P;
+        string nome_pais_escolha;
     //fim das variaveis locais
     
     cout<<"INICIALIZANDO O JOGO: "<<endl;
@@ -71,7 +86,33 @@ int main()
         }
     //fim
 
-    J.Imprimir_participantes();
+    //para distribuir os paises para os jogadores inicialmente
+
+        numero_de_paises_de_um_player = 24 / numero_de_jogadores;//esta conta determina quantas intereções vão ser realizadas para que o jogador coloque seus exercitos
+
+        for(int j = 0 ; j < numero_de_jogadores ; j ++)
+        {
+            for(int i = 0 ; i < numero_de_paises_de_um_player ; i++ )
+            {
+
+                escolha = numero_aleatorio(0,23);
+
+                nome_pais_escolha = vet[escolha];
+
+                P.setNome(nome_pais_escolha);
+
+                nome_pais.push_back(P);
+
+                jogadores = J.getJogadores();
+
+                jogadores[j].setPaises(nome_pais);
+
+                J.setJogadores(jogadores);       
+            }
+            nome_pais.clear();
+        }
+
+        J.Imprimir_participantes();
 
     return 0;
 }

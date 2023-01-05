@@ -23,6 +23,11 @@ void Jogador::setJogadores(vector<Jogador> jogadores)
     this->lista_jogadores = jogadores;
 }
 
+vector<Jogador> Jogador::getJogadores()
+{
+    return this->lista_jogadores;
+}
+
 void Jogador::setNome(string nome)
 {
     this->nome = nome;
@@ -48,7 +53,16 @@ void Jogador::Imprimir_participantes()
 
     for(int i = 0 ; i < this->lista_jogadores.size() ; i++)
     {
-        cout<<"Nome: "<<this->lista_jogadores[i].getNome()<<endl;
+        cout<<endl<<"Nome: "<<this->lista_jogadores[i].getNome()<<endl<<endl;
+
+        cout<<"Paises desse jogador: "<<endl<<endl; 
+
+        for(int j = 0 ; j < lista_jogadores[i].paises.size() ; j++)
+        {
+
+            cout<<","<<this->lista_jogadores[i].paises[j].getNome();
+        
+        }
     }
 }
 
