@@ -26,7 +26,9 @@ toda a estrutura em mente para que fosse agilizado o processo de construção
 foi criado as classes ja pensadas no diagrama na sua primeira versão, alem
 da implementação de duas perguntas iniciais do game, que seriam o número 
 de pariticipantes e seus respectivos nomes, os resultados seguem na seção
-de casos de teste.
+de casos de teste. Nesta alteração feita no código fonte não aconteceu 
+alteração na constituição das classes, sendo assim o diagrama do projeto 
+permaneceu como estava desde a ultima alteração.
 
 ## CASOS DE TESTE E SEUS RESULTADOS
 
