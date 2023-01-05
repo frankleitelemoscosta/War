@@ -9,7 +9,7 @@ como dito por Lamorisse o jogo simula a conquista de paises por um jogador, tend
 como vencedor aquele que cumprir os objetivos descritos nas cartas primeiro
 tendo conquista o mundo.
 
-## DECISÕES DE IMPLEMENTAÇÃO E RESULTADOS
+## DECISÕES DE IMPLEMENTAÇÃO E ATUALIZAÇÕES DO DIAGRAMA DE CLASSES
 
 ### A PRIMEIRA DECISÃO
 
@@ -25,10 +25,20 @@ Após ter cido idealizado o projeto, mesmo que parcialmente, ainda não tendo
 toda a estrutura em mente para que fosse agilizado o processo de construção
 foi criado as classes ja pensadas no diagrama na sua primeira versão, alem
 da implementação de duas perguntas iniciais do game, que seriam o número 
-de pariticipantes e seus respectivos nomes, os resultados seguem no curta 
-metragem a seguir:
+de pariticipantes e seus respectivos nomes, os resultados seguem na seção
+de casos de teste.
+
+## CASOS DE TESTE E SEUS RESULTADOS
+
+### PRIMEIRO CASO DE TESTE
+
+O primeiro teste a ser realizado era das primeiras perguntas antes do inicio
+da dinâmica do jogo, que são a quantidade de participantes e seus nomes, 
+foi feito o teste para averiguar se a implementação foi concluida com sucesso,
+os resultados seguem no curta metragem a seguir:
 
 https://user-images.githubusercontent.com/107070061/210267714-778d2dca-5d47-4bd3-b034-086b748ce584.mp4
+
 
 Como é possível ver é mostrado que foi obtido sucesso na compilação, o mesmo
 não apresentou nenhum warning, erro de sintaxe ou falha de segmentação, alcançando 
