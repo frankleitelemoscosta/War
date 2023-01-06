@@ -39,7 +39,14 @@ make file, assim permanecendo sem nenhuma alteração no diagrama.
 
 Já que o programa passou a ser capaz de receber o número de jogadores e
 seus respectivos nomes, foi tomada a decisão de enviar as informações até
-a classe dos jogadores
+a classe dos jogadores, para isso foi utilizado um objeto do tipo jogador,
+e com mesmo era inserido o nome a classe jogador, utilizando a função setnome,
+apos fazer essa inserção esse objeto era inserido em uma lista denominada 
+jogadores e após a lista é inserida na classe jogadores, como ainda não havia
+nos atribuitos uma lista de paises foi adicionado ao diagrama, como mostra o 
+print a seguir:
+
+![adicionando lista de paises](https://user-images.githubusercontent.com/107070061/211031442-b43ecf2c-9de5-4839-815a-21fec46446f3.png)
 
 ## CASOS DE TESTE E SEUS RESULTADOS
 
