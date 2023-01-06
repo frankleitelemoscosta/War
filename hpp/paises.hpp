@@ -1,27 +1,39 @@
 #ifndef __PAISES_HPP
 #define __PAISES_HPP
-#include <string>
-#include <vector>
+
+//bibliotecas
+    #include <string>
+    #include <vector>
+    #include "tropas.hpp"
+//fim
 
 using namespace std;
 
 class Paises
 {
 private:
+
     string nome;
-    unsigned int tropas;
+    vector<Tropas> tropas;
     vector<string>fronteiras;
+//fim dos atributos
+
 public:
-    Paises(string nome,unsigned int tropas,vector<string>fornteira);
+    Paises(string nome,vector<Tropas> tropas,vector<string>fornteira);
     Paises();
 
     void setNome(string nome);
     string getNome();
 
-    void setTropas(unsigned int tropas);
-    unsigned int getTropas();
+    void setTropas(vector<Tropas> tropas);
+    vector<Tropas> getTropas();
 
     void setFronteiras(vector<string>fronteira);
     vector<string> getFronteiras();
+//fim dos métodos
+
 };
 #endif
+
+
+//fim do código

@@ -66,5 +66,15 @@ void Jogador::Imprimir_participantes()
     }
 }
 
+void Jogador::aloc_tropas(int quantidade_tropas)
+{
+    
+
+}
+
+void Jogador::atacar()
+{
+    
+}
 
 //fim do código

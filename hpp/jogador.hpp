@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Jogador
+class Jogador: public Paises
 {
 private:
 
@@ -21,6 +21,7 @@ private:
 
     //fim dos atributos
 public:
+
     Jogador(string nome, string objetivo, unsigned int tropas, vector<string> cartas);
     Jogador();
 
@@ -44,7 +45,7 @@ public:
 
     void Imprimir_participantes();
 
-    void aloc_tropas();
+    void aloc_tropas(int quantidade_tropas);
     void atacar();
     void realoc_tropas();
     void compra_cartas();

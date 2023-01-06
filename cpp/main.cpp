@@ -7,6 +7,7 @@
     #include <chrono>
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/paises.hpp"
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/jogador.hpp"
+    #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/tropas.hpp"
 //fim das bibliotecas
 
 using namespace std;
@@ -16,16 +17,18 @@ int main()
 
     //variaveis locais
         int numero_de_jogadores,   error;
-        string *vetor;
         vector<Jogador> jogadores;
         Jogador J;
+        Tropas T;
+        vector<Tropas> tropas;
         string nome_jogador;
-        string vet[40] = {"Brasil","Australia","Peru","Argentina","Venezuela","Alaska","North Africa","South Africa","Congo","India","China","Japao","Afeganistao","California","Nova york","Mexico","Makenzie","Groelandia","Espanha","Moscou","Vancouver","Ottawa","Bolivia","Chile"};
+        string vet[45] = {"Brasil","Australia","Peru","Argentina","Venezuela","Alaska","North Africa","South Africa","Congo","India","China","Japao","Afeganistao","California","Nova york","Mexico","Makenzie","Groelandia","Espanha","Moscou","Vancouver","Ottawa","Bolivia","Chile","Madagascar","Alemanha","Egito","Italia","Polonia","Suecia","Inglaterra","Islandia","Labrador","Mongolia","Dudinka","Vladvostok","Vietna","Sumatra","Nova Guiné","Sudão","Tchita","Omsk","Sibéria","Aral","Borneo"};
         int  numero_de_paises_de_um_player = 0;
         vector<Paises> nome_pais ;
         Paises P;
         string nome_pais_escolha;
         vector<string> paises;
+        int quantidade_tropas_player;
     //fim das variaveis locais
     
     cout<<"INICIALIZANDO O JOGO: "<<endl;
@@ -57,10 +60,6 @@ int main()
         }while(error == 1 || numero_de_jogadores > 6 || numero_de_jogadores <= 2);
     //fim
 
-    //alocação de memória
-        vetor = new string[numero_de_jogadores];
-    //fim
-
 
     //imput dos nomes dos componentes
         for(int i = 0 ; i < numero_de_jogadores ; i++)
@@ -81,7 +80,7 @@ int main()
     //fim
 
     //passando os paises para um vector, para que ele seja embaralhado 
-        for(int i = 0 ; i < 24 ; i++)
+        for(int i = 0 ; i < 45 ; i++)
         {
             nome_pais_escolha = vet[i];
 
@@ -99,7 +98,7 @@ int main()
 
     //para distribuir os paises para os jogadores inicialmente
 
-        numero_de_paises_de_um_player = 24 / numero_de_jogadores;//esta conta determina quantas intereções vão ser realizadas para que o jogador coloque seus exercitos
+        numero_de_paises_de_um_player = 45 / numero_de_jogadores;//esta conta determina quantas intereções vão ser realizadas para que o jogador coloque seus exercitos
 
         for(int j = 0 ; j < numero_de_jogadores ; j ++)
         {
@@ -110,20 +109,49 @@ int main()
 
                 paises.pop_back();//excluindo o ultimo nome
 
-                P.setNome(nome_pais_escolha);
+                //passando as informações iniciais para os paises dos jogadoress
+                    P.setNome(nome_pais_escolha);
 
-                nome_pais.push_back(P);
+                    T.setTipo(1);
 
-                jogadores = J.getJogadores();
+                    tropas.push_back(T);
 
-                jogadores[j].setPaises(nome_pais);
+                    P.setTropas(tropas);
+                //fim    
 
-                J.setJogadores(jogadores);       
+                //passando informações iniciais para os jogadores
+                    nome_pais.push_back(P);
+
+                    jogadores = J.getJogadores();
+
+                    jogadores[j].setPaises(nome_pais);
+
+                    J.setJogadores(jogadores);       
+                //fim
             }
             nome_pais.clear();//limpa o vector nome pais antes da próxima interação
         }
+    //fim
 
         J.Imprimir_participantes();
+    
+    //para que o programa saiba quantas tropas distribuir para um jogador
+
+        quantidade_tropas_player = numero_de_paises_de_um_player / 2;    
+
+    //fim
+
+    //fazendo os jogadores distribuirem suas tropas    
+        jogadores = J.getJogadores();
+
+        for(int i = 0 ; i < numero_de_jogadores ; i ++)
+        {
+            cout<<("Determine onde as suas tropas ficaram: ")<<jogadores[i].getNome()<<endl<<endl;
+
+            
+            jogadores[i].aloc_tropas(quantidade_tropas_player);
+        }
+    //fim
 
     return 0;
 }
