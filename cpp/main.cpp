@@ -22,7 +22,6 @@ int main()
         string nome_jogador;
         string vet[40] = {"Brasil","Australia","Peru","Argentina","Venezuela","Alaska","North Africa","South Africa","Congo","India","China","Japao","Afeganistao","California","Nova york","Mexico","Makenzie","Groelandia","Espanha","Moscou","Vancouver","Ottawa","Bolivia","Chile"};
         int  numero_de_paises_de_um_player = 0;
-        int escolha_aux[40], escolha;
         vector<Paises> nome_pais ;
         Paises P;
         string nome_pais_escolha;
@@ -121,7 +120,7 @@ int main()
 
                 J.setJogadores(jogadores);       
             }
-            nome_pais.clear();
+            nome_pais.clear();//limpa o vector nome pais antes da próxima interação
         }
 
         J.Imprimir_participantes();

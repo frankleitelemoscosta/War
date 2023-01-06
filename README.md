@@ -32,6 +32,11 @@ permaneceu como estava desde a ultima alteração.
 
 ### A TERCEIRA DECISÃO
 
+Para que se tornasse mais simples executar o código fonte foi criado um
+make file, assim permanecendo sem nenhuma alteração no diagrama.
+
+### A QUARTA DECISÃO
+
 Já que o programa passou a ser capaz de receber o número de jogadores e
 seus respectivos nomes, foi tomada a decisão de enviar as informações até
 a classe dos jogadores
