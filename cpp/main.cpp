@@ -3,19 +3,13 @@
     #include <string>
     #include <vector>
     #include <random>
+    #include <algorithm>
+    #include <chrono>
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/paises.hpp"
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/jogador.hpp"
 //fim das bibliotecas
 
 using namespace std;
-
-int numero_aleatorio(int a, int b)
-{
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(a, b);
-    return dis(gen);
-}
 
 int main()
 {
@@ -28,10 +22,11 @@ int main()
         string nome_jogador;
         string vet[40] = {"Brasil","Australia","Peru","Argentina","Venezuela","Alaska","North Africa","South Africa","Congo","India","China","Japao","Afeganistao","California","Nova york","Mexico","Makenzie","Groelandia","Espanha","Moscou","Vancouver","Ottawa","Bolivia","Chile"};
         int  numero_de_paises_de_um_player = 0;
-        int escolha;
+        int escolha_aux[40], escolha;
         vector<Paises> nome_pais ;
         Paises P;
         string nome_pais_escolha;
+        vector<string> paises;
     //fim das variaveis locais
     
     cout<<"INICIALIZANDO O JOGO: "<<endl;
@@ -86,6 +81,23 @@ int main()
         }
     //fim
 
+    //passando os paises para um vector, para que ele seja embaralhado 
+        for(int i = 0 ; i < 24 ; i++)
+        {
+            nome_pais_escolha = vet[i];
+
+            paises.push_back(nome_pais_escolha);
+        }
+    //fim
+
+    //embaralhando o vector com os paises
+        unsigned seed = std::chrono::system_clock::now()
+                            .time_since_epoch()
+                            .count();
+
+        shuffle(paises.begin(),paises.end(),default_random_engine(seed));//embaralha o vector paises
+    //fim
+
     //para distribuir os paises para os jogadores inicialmente
 
         numero_de_paises_de_um_player = 24 / numero_de_jogadores;//esta conta determina quantas intereções vão ser realizadas para que o jogador coloque seus exercitos
@@ -95,9 +107,9 @@ int main()
             for(int i = 0 ; i < numero_de_paises_de_um_player ; i++ )
             {
 
-                escolha = numero_aleatorio(0,23);
+                nome_pais_escolha = paises.back();//pegando o nome do final
 
-                nome_pais_escolha = vet[escolha];
+                paises.pop_back();//excluindo o ultimo nome
 
                 P.setNome(nome_pais_escolha);
 

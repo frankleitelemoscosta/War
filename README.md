@@ -30,6 +30,12 @@ de casos de teste. Nesta alteração feita no código fonte não aconteceu
 alteração na constituição das classes, sendo assim o diagrama do projeto 
 permaneceu como estava desde a ultima alteração.
 
+### A TERCEIRA DECISÃO
+
+Já que o programa passou a ser capaz de receber o número de jogadores e
+seus respectivos nomes, foi tomada a decisão de enviar as informações até
+a classe dos jogadores
+
 ## CASOS DE TESTE E SEUS RESULTADOS
 
 ### PRIMEIRO CASO DE TESTE
