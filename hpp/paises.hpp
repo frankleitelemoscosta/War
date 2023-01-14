@@ -15,11 +15,11 @@ private:
 
     string nome;
     vector<Tropas> tropas;
-    vector<string>fronteiras;
+    
 //fim dos atributos
 
 public:
-    Paises(string nome,vector<Tropas> tropas,vector<string>fornteira);
+    Paises(string nome);
     Paises();
 
     void setNome(string nome);
@@ -28,8 +28,6 @@ public:
     void setTropas(vector<Tropas> tropas);
     vector<Tropas> getTropas();
 
-    void setFronteiras(vector<string>fronteira);
-    vector<string> getFronteiras();
 //fim dos métodos
 
 };

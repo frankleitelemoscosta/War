@@ -1,13 +1,13 @@
 //bibliotecas
-    #include"/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/tropas.hpp"
     #include<iostream>
+    #include"/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/tropas.hpp"  
 //fim das bibliotecas
 
 using namespace std;
 
 Tropas::Tropas()
 {
-
+    
 }
 
 void Tropas::setTropas(vector<Tropas> tropas)

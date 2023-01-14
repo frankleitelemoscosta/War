@@ -1,11 +1,9 @@
 #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/paises.hpp"
 using namespace std;
 
-Paises::Paises(string nome, vector<Tropas> tropas, vector<string>fronteiras)
+Paises::Paises(string nome )
 {
     setNome(nome);
-    setTropas(tropas);
-    setFronteiras(fronteiras);
 }
 Paises::Paises(){}
 
@@ -25,13 +23,4 @@ void Paises::setTropas(vector<Tropas> tropas)
 vector<Tropas> Paises::getTropas()
 {
     return this->tropas;
-}
-
-void Paises::setFronteiras(vector<string>fronteiras)
-{
-    this->fronteiras = fronteiras;
-}
-vector<string> Paises::getFronteiras()
-{
-    return this->fronteiras;
 }

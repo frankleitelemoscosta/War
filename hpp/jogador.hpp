@@ -45,10 +45,12 @@ public:
 
     void Imprimir_participantes();
 
-    void aloc_tropas(int quantidade_tropas);
+    void aloc_tropas(int quantidade_tropas, Tropas T);
     void atacar();
     void realoc_tropas();
     void compra_cartas();
+
+    void Consultar_tropas_e_paises();
     
     //fim dos métodos
 };

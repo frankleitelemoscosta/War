@@ -1,5 +1,6 @@
 #ifndef __TROPAS_HPP
 #define __TROPAS_HPP
+
 #include <string>
 #include <vector>
 
@@ -20,7 +21,7 @@ public:
     void setTropas(vector<Tropas> tropas);
     vector<Tropas> getTropas();
 
-    void setTipo(int nome);
+    void setTipo(int tipo);
     int getTipo();
 
 //fim dos métodos

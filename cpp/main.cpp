@@ -28,7 +28,7 @@ int main()
         Paises P;
         string nome_pais_escolha;
         vector<string> paises;
-        int quantidade_tropas_player;
+        int quantidade_tropas_player , tropas_iniciais = 1;
     //fim das variaveis locais
     
     cout<<"INICIALIZANDO O JOGO: "<<endl;
@@ -110,16 +110,19 @@ int main()
                 paises.pop_back();//excluindo o ultimo nome
 
                 //passando as informações iniciais para os paises dos jogadoress
-                    P.setNome(nome_pais_escolha);
-
-                    T.setTipo(1);
+                    T.setTipo(tropas_iniciais);
 
                     tropas.push_back(T);
 
                     P.setTropas(tropas);
+
+                    tropas.clear();
+
                 //fim    
 
                 //passando informações iniciais para os jogadores
+                    P.setNome(nome_pais_escolha);
+
                     nome_pais.push_back(P);
 
                     jogadores = J.getJogadores();
@@ -132,26 +135,29 @@ int main()
             nome_pais.clear();//limpa o vector nome pais antes da próxima interação
         }
     //fim
-
-        J.Imprimir_participantes();
     
     //para que o programa saiba quantas tropas distribuir para um jogador
 
         quantidade_tropas_player = numero_de_paises_de_um_player / 2;    
+    
+    //fim
+        
+    //reiniciando o vector dos jogadores
+        jogadores.clear();
 
+        jogadores = J.getJogadores();
     //fim
 
     //fazendo os jogadores distribuirem suas tropas    
-        jogadores = J.getJogadores();
-
         for(int i = 0 ; i < numero_de_jogadores ; i ++)
         {
             cout<<("Determine onde as suas tropas ficaram: ")<<jogadores[i].getNome()<<endl<<endl;
 
-            
-            jogadores[i].aloc_tropas(quantidade_tropas_player);
+            jogadores[i].aloc_tropas(quantidade_tropas_player,T);
         }
     //fim
+
+    for(int i = 0 ; i < numero_de_jogadores ; i ++)jogadores[i].Consultar_tropas_e_paises();
 
     return 0;
 }
