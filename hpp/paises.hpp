@@ -27,7 +27,6 @@ public:
 
     void setTropas(vector<Tropas> tropas);
     vector<Tropas> getTropas();
-
 //fim dos métodos
 
 };

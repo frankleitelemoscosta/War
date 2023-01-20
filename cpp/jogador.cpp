@@ -198,7 +198,44 @@ void Jogador::Consultar_tropas_e_paises()
 
 void Jogador::atacar()
 {
-    
+    cout<<"Suas opções de ataque são: "<<endl;
+
+    //varrendo os paises que o jogador possue para que encontre onde ele pode atacar
+        for(int i = 0 ; i < this->paises.size() ; i++)
+        {
+            if(paises[i].getNome() == "Brasil")
+            {
+            
+                cout<<"Chile\nPeru\nArgentina\nNorth Africa"<<endl;
+            
+            }
+            else if(paises[i].getNome() == "Australia")
+            {
+
+                cout<<"Nova Guiné\nBorneo\nSumatra"<<endl;
+            
+            }
+            else if(paises[i].getNome() == "Peru")
+            {
+
+                cout<<"Chile\nBrasil\nMexico"<<endl;
+
+            }
+            else if(paises[i].getNome() == "Argentina")
+            {
+
+                cout<<"Brasil\nChile"<<endl;
+
+            }
+            else if(paises[i].getNome() == "Venezuela")
+            {
+
+                cout<<"Peru\nBrasil\nMexico"<<endl;
+
+            }
+            
+
+        }
 }
 
 //fim do código

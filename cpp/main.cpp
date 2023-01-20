@@ -5,12 +5,23 @@
     #include <random>
     #include <algorithm>
     #include <chrono>
+    #include <random>
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/paises.hpp"
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/jogador.hpp"
     #include "/home/frank/Documentos/PROJETOS FORA DA FACUL/WAR/hpp/tropas.hpp"
 //fim das bibliotecas
 
 using namespace std;
+
+
+int numero_aleatorio(int a, int b)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(a, b);
+    return dis(gen);
+}
+
 
 int main()
 {
@@ -29,6 +40,15 @@ int main()
         string nome_pais_escolha;
         vector<string> paises;
         int quantidade_tropas_player , tropas_iniciais = 1;
+        bool vencedor = false;
+        int rodada = 1;
+        int *ordem_jogada;
+        int contador = 0;
+        int *verificador;
+        bool analise = false;
+        bool stop_our_continue = false;
+        int ordem;
+        int contador_aux1 = 0, contador_aux2 = 0;
     //fim das variaveis locais
     
     cout<<"INICIALIZANDO O JOGO: "<<endl;
@@ -60,6 +80,10 @@ int main()
         }while(error == 1 || numero_de_jogadores > 6 || numero_de_jogadores <= 2);
     //fim
 
+    //determinando o tamanho do vetor que vai conter a ordem de jogada
+        ordem_jogada = new int[numero_de_jogadores];
+        verificador = new int[numero_de_jogadores];
+    //fim
 
     //imput dos nomes dos componentes
         for(int i = 0 ; i < numero_de_jogadores ; i++)
@@ -138,7 +162,8 @@ int main()
     
     //para que o programa saiba quantas tropas distribuir para um jogador
 
-        quantidade_tropas_player = numero_de_paises_de_um_player / 2;    
+        quantidade_tropas_player = numero_de_paises_de_um_player / 2;  
+        quantidade_tropas_player = 1 ;  
     
     //fim
         
@@ -148,16 +173,81 @@ int main()
         jogadores = J.getJogadores();
     //fim
 
-    //fazendo os jogadores distribuirem suas tropas    
+    cout<<"AGORA SIM, PODEMOS COMEÇAR!!!"<<endl<<endl;
+   
+    for(int i = 0 ; i < numero_de_jogadores ; i ++)
+    {
+        verificador[i] = -1000000;    
+    }
+
+    contador_aux2 = 0;
+    //sorteando a ordem, ou seja qual jogador vai jogar primeiro e sucessivamente
         for(int i = 0 ; i < numero_de_jogadores ; i ++)
         {
-            cout<<("Determine onde as suas tropas ficaram: ")<<jogadores[i].getNome()<<endl<<endl;
 
-            jogadores[i].aloc_tropas(quantidade_tropas_player,T);
+            ordem_jogada[i] = numero_aleatorio(0,(numero_de_jogadores-1));
+            contador++;
+
+                
+                while(analise == false)
+                {
+                    
+                    for(int j = 0 ; j < contador ; j++)
+                    {
+                        if(verificador[j] == ordem_jogada[i] && contador_aux2 < 2)
+                        {
+                            stop_our_continue = true;
+                            if(contador_aux1 == 0)
+                            {
+                                contador_aux1++;
+                            }
+                        }
+                        else if(contador_aux1 != 1 && verificador[j] != ordem_jogada[i])
+                        {
+                            analise = true;
+                            stop_our_continue = false;
+                        }
+                    }
+                    if(stop_our_continue == true)
+                    {
+                        ordem_jogada[i] = numero_aleatorio(0,(numero_de_jogadores-1));
+                        analise = false;
+                        contador_aux1 = 0;
+                    }
+
+                }  
+
+            analise = false;  
+            verificador[i] = ordem_jogada[i];
+            contador_aux1 = 0;
+            cout<< ordem_jogada[i]<<endl; 
+        
         }
     //fim
 
-    for(int i = 0 ; i < numero_de_jogadores ; i ++)jogadores[i].Consultar_tropas_e_paises();
+    cout<<"Pressione qualquer tecla para continuar o jogo!!"<<endl;
+    getchar();
+    getchar();
+
+    do{
+        if(rodada == 1)
+        {
+            //fazendo os jogadores distribuirem suas tropas    
+                for(int i = 0 ; i < numero_de_jogadores ; i ++)
+                {
+                    cout<<("Determine onde as suas tropas ficarão: ")<<jogadores[i].getNome()<<endl<<endl;
+
+                    ordem = ordem_jogada[i]; 
+
+                    jogadores[ordem].aloc_tropas(quantidade_tropas_player,T);
+                }
+            //fim
+        }
+
+        rodada++;
+        vencedor = true;//é apenas para teste após deve ser retirado
+    
+    }while(vencedor == false);
 
     return 0;
 }
